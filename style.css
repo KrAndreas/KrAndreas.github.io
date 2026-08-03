@@ -1,0 +1,165 @@
+/* ============================================================
+   Andreas Kraft — personal site
+   Single stylesheet for all pages.
+   ============================================================ */
+
+:root {
+  --accent: #7B1113;          /* deep maroon; swap for #BF5700 burnt orange */
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --rule: #e2e2e2;
+  --bg: #fdfdfc;
+  --maxw: 46rem;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0 1.25rem 5rem;
+  background: var(--bg);
+  color: var(--ink);
+  font: 17px/1.6 Georgia, "Times New Roman", serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: var(--maxw); margin: 0 auto; }
+
+/* ------------------------------------------------ header / nav -- */
+
+header.site {
+  padding: 3rem 0 1.25rem;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 2.25rem;
+}
+
+header.site h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  letter-spacing: -0.01em;
+  font-weight: normal;
+}
+
+header.site .affil {
+  margin: 0.35rem 0 1.1rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+nav a {
+  margin-right: 1.4rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink-soft);
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+nav a:hover { color: var(--accent); }
+nav a.here { color: var(--ink); border-bottom-color: var(--accent); }
+
+/* ------------------------------------------------------- text -- */
+
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(123, 17, 19, 0.25); }
+a:hover { border-bottom-color: var(--accent); }
+
+h2 {
+  font-size: 0.85rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 600;
+  margin: 2.75rem 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+p { margin: 0 0 1.1rem; }
+
+/* -------------------------------------------------- home intro -- */
+
+.intro { display: flex; gap: 2rem; align-items: flex-start; }
+.intro .bio { flex: 1; }
+
+/* width/height attrs on the <img> reserve layout space; height:auto keeps the
+   4:5 aspect ratio while CSS drives the displayed width. */
+.portrait {
+  width: 180px;
+  height: auto;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.contact {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  line-height: 1.9;
+}
+
+/* ----------------------------------------------------- papers -- */
+
+.paper { margin-bottom: 1.6rem; }
+
+.paper .title { font-weight: bold; }
+.paper .title a { border-bottom-color: rgba(123, 17, 19, 0.3); }
+
+.paper .meta {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  margin-top: 0.15rem;
+}
+
+.paper .status { font-style: italic; }
+
+.paper details { margin-top: 0.45rem; }
+
+.paper details summary {
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+  list-style: none;
+}
+
+.paper details summary::-webkit-details-marker { display: none; }
+.paper details summary::before { content: "+ "; }
+.paper details[open] summary::before { content: "\2212  "; }
+
+.paper details p {
+  margin: 0.6rem 0 0;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  padding-left: 1rem;
+  border-left: 2px solid var(--rule);
+}
+
+/* ------------------------------------------------------ lists -- */
+
+ul.plain { list-style: none; padding: 0; margin: 0; }
+ul.plain li { margin-bottom: 0.9rem; }
+
+.course { font-weight: bold; }
+.course-meta { display: block; font-size: 0.92rem; color: var(--ink-soft); }
+
+footer.site {
+  margin-top: 4rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+/* ------------------------------------------------------ mobile -- */
+
+@media (max-width: 34rem) {
+  .intro { flex-direction: column-reverse; }
+  .portrait { width: 130px; }
+  nav a { margin-right: 1rem; font-size: 0.78rem; }
+}
