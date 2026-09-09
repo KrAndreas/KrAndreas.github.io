@@ -116,6 +116,14 @@ p { margin: 0 0 1.1rem; }
 
 .paper .status { font-style: italic; }
 
+/* Media lines carry several citations; the hanging indent keeps wrapped text
+   reading as a continuation rather than as a new metadata field. */
+.paper .press {
+  margin-top: 0.3rem;
+  padding-left: 1rem;
+  text-indent: -1rem;
+}
+
 .paper details { margin-top: 0.45rem; }
 
 .paper details summary {
